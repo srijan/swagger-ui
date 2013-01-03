@@ -68,7 +68,10 @@ class OperationView extends Backbone.View
       map = {}
       for o in form.serializeArray()
         if(o.value? && jQuery.trim(o.value).length > 0)
-          map[o.name] = o.value
+          if(o.name of map)
+            map[o.name] = map[o.name] + ',' + o.value
+          else
+            map[o.name] = o.value
 
       isFileUpload = $('input[type~="file"]').size != 0
 

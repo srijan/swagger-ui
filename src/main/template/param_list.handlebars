@@ -1,6 +1,10 @@
 <td class='code'>{{name}}</td>
 <td>
+    {{#if allowMultiple}}
+    <select name='{{name}}' multiple='multiple'>
+    {{else}}
     <select name='{{name}}'>
+    {{/if}}
         {{#if required}}
         {{else}}
             {{#if defaultValue}}
